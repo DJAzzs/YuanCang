@@ -182,3 +182,7 @@ RL门槛: 策略在RL题库上pass率须20~70%才有密集奖励信号
 #
 # MATH-500考点映射: Algebra/IntermediateAlgebra/Prealgebra/Geometry/
 #   NumberTheory/Counting&Probability/Precalculus → 15个SQLM主题
+
+## License
+
+Apache License 2.0 · Copyright (c) 2025 DJAzzs
