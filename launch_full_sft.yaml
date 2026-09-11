@@ -1,0 +1,49 @@
+model_name_or_path: /home/dja/桌面/远苍/Qwen2.5-Math-7B
+trust_remote_code: true
+
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: /home/dja/桌面/远苍/ds_z2_finetune.json
+
+dataset: yuancang_math
+template: qwen
+cutoff_len: 8192
+max_samples: null
+preprocessing_num_workers: 64
+dataloader_num_workers: 8
+
+output_dir: /home/dja/桌面/远苍/saves/yuancang-full-sft
+logging_steps: 5
+save_steps: 200
+eval_steps: 2000
+save_only_model: false
+overwrite_output_dir: true
+report_to: none
+
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+num_train_epochs: 1
+max_steps: -1
+remove_unused_columns: false
+
+use_gradient_checkpointing: true
+
+learning_rate: 1.5e-5
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+end_learning_rate: 1.5e-7
+
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_epsilon: 1e-8
+weight_decay: 0.01
+
+max_grad_norm: 1.0
+
+seed: 42
+save_total_limit: 3
+
+eval_with_id: high
+
+eval_dataset: yuancang_eval
